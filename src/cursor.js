@@ -7,15 +7,25 @@ class Cursor {
     this.active = false;
   }
 
-  selectPiece(piece){
+  selectPiece(){
     //if (game.board[this.col][this.row].occupied){
     // try wrapping code in here to pick up any piece;
     //}
-    if (piece.col === this.col && piece.row === this.row) {
-        //piece.showPossibleMoves();
-        piece.selected = true;
-        this.hasAPiece = true;
-        console.log(game.board);
+    //if (piece.col === this.col && piece.row === this.row) {
+    //    //piece.showPossibleMoves();
+    //    piece.selected = true;
+    //    this.hasAPiece = true;
+    //    console.log(game.board);
+    //}
+    if (this.color === 'orange'){
+      let pieceToSelect = game.orangeTeam.filter(member => this.col === member.col && this.row === member.row);
+      pieceToSelect[0].selected = true;
+      this.hasAPiece = true;
+    }
+    else {
+      let pieceToSelect = game.cyanTeam.filter(member => this.col === member.col && this.row === member.row);
+      pieceToSelect[0].selected = true;
+      this.hasAPiece = true;
     }
   }
 
@@ -34,6 +44,34 @@ class Cursor {
       SQUARE_SIDE,
       SQUARE_SIDE
     );
+    //fill(this.color);
+    //rect(
+    //  (this.col-1) * SQUARE_SIDE,
+    //  (this.row-1) * SQUARE_SIDE,
+    //  SQUARE_SIDE,
+    //  SQUARE_SIDE
+    //);
+    //fill(this.color);
+    //rect(
+    //  this.col * SQUARE_SIDE,
+    //  this.row * SQUARE_SIDE,
+    //  SQUARE_SIDE,
+    //  SQUARE_SIDE
+    //);
+    //fill(this.color);
+    //rect(
+    //  this.col * SQUARE_SIDE,
+    //  this.row * SQUARE_SIDE,
+    //  SQUARE_SIDE,
+    //  SQUARE_SIDE
+    //);
+    //fill(this.color);
+    //rect(
+    //  this.col * SQUARE_SIDE,
+    //  this.row * SQUARE_SIDE,
+    //  SQUARE_SIDE,
+    //  SQUARE_SIDE
+    //);
   }
 
   moveLeft() {
